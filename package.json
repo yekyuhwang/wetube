@@ -1,0 +1,13 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "Cloning Youtube With Vanilla and NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hwang YeKyu",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
