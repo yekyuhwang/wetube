@@ -18,6 +18,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
+// ==== pug에서 비디오를 재생하기 위해 추가해야하는 서버 세팅코드 ====
+app.use(function (req, res, next) {
+  res.setHeader(
+    "Content-Security-Policy",
+    "script-src 'self' https://archive.org"
+  );
+
+  return next();
+});
+// ======================================================
+
 app.use(LocalsMiddleware);
 
 app.use(routes.home, globalRouter);
