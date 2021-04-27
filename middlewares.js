@@ -7,7 +7,7 @@ export const LocalsMiddleware = (req, res, next) => {
   res.locals.siteName = "WeTube";
   res.locals.routes = routes;
   res.locals.user = {
-    isAuthenticated: true,
+    isAuthenticated: false,
     id: 1,
   };
   next();
@@ -15,7 +15,7 @@ export const LocalsMiddleware = (req, res, next) => {
 
 export const uploadVideo = multerVideo.single("videoFile");
 
-// isAuthenticated : 로그인이 잘 되었는지 알려주는 변수
+// isAuthenticated : 로그인이 잘 되었는지 알려주는 변수 (사용자 인증)
 
 // express는 사용자가 업로드한 파일을 받아서 저장하는 기본 기능을 제공하지 않는다.
 // 따라서 모듈을 설치해서 (multer) 사용자가 전송한 파일을 처리하는 작업을 해야한다.

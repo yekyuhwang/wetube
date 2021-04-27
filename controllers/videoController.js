@@ -1,5 +1,6 @@
 import routes from "../routes";
 import Video from "../models/Video";
+import Comment from "../models/Comment";
 
 export const home = async (req, res) => {
   try {
@@ -53,15 +54,19 @@ export const videoDetail = async (req, res) => {
   const {
     params: { id },
   } = req;
+
+  console.log("asdlkasdklaldkasdkl");
+  console.log(id);
   try {
-    const video = await Video.findById(id);
+    const video = await Video.findById(id)
+      .populate("creator")
+      .populate("comments");
     res.render("videoDetail", { pageTitle: video.title, video });
   } catch (error) {
     console.log(error);
     res.redirect(routes.home);
   }
 };
-
 export const getEditVideo = async (req, res) => {
   const {
     params: { id },
